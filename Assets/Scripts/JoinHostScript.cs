@@ -8,20 +8,25 @@ using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using Unity.Services.Relay.Models;
 using TMPro;
+using UnityEngine.Events;
 
 
 public class JoinHostScript : MonoBehaviour
 {
-    public TextMeshProUGUI joinCodeText;
 
-    public void Join(string joinCode)
+    public UnityEvent<string> OnJoined;
+
+    public async void Join(string joinCode)
     {
-        StartClientWithRelay(joinCode, "udp");
+        bool joined = await StartClientWithRelay(joinCode, "udp");
+        if (joined)
+            OnJoined.Invoke("");
     }
-    public void Host()
+    public async void Host()
     {
-        StartHostWithRelay(16,"udp");
-
+        string joinCode = await StartHostWithRelay(16, "udp");
+        if(joinCode != null)
+            OnJoined.Invoke(joinCode);
     }
     public async Task<string> StartHostWithRelay(int maxConnections, string connectionType)
     {
@@ -33,8 +38,6 @@ public class JoinHostScript : MonoBehaviour
         var allocation = await RelayService.Instance.CreateAllocationAsync(maxConnections);
         NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(AllocationUtils.ToRelayServerData(allocation, connectionType));
         var joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
-        Debug.Log(joinCode);
-        joinCodeText.text = joinCode;
         return NetworkManager.Singleton.StartHost() ? joinCode : null;
     }
     public async Task<bool> StartClientWithRelay(string joinCode, string connectionType)
