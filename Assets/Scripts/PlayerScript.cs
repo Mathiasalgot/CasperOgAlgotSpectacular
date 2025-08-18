@@ -35,6 +35,7 @@ public class PlayerScript : NetworkBehaviour
         GameObject clone = Instantiate(object1, transform.position + new Vector3(0,3,0), Quaternion.identity);
         clone.GetComponent<NetworkObject>().Spawn();
     }
+
     [ServerRpc]
     void SpawnObjectServerRpc()
     {
