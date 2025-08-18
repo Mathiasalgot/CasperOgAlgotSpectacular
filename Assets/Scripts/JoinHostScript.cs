@@ -7,9 +7,12 @@ using Unity.Services.Relay;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using Unity.Services.Relay.Models;
+using TMPro;
+
 
 public class JoinHostScript : MonoBehaviour
 {
+    public TextMeshProUGUI joinCodeText;
 
     public void Join(string joinCode)
     {
@@ -31,6 +34,7 @@ public class JoinHostScript : MonoBehaviour
         NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(AllocationUtils.ToRelayServerData(allocation, connectionType));
         var joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
         Debug.Log(joinCode);
+        joinCodeText.text = joinCode;
         return NetworkManager.Singleton.StartHost() ? joinCode : null;
     }
     public async Task<bool> StartClientWithRelay(string joinCode, string connectionType)

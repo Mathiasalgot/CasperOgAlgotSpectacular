@@ -1308,6 +1308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c171a333af862f4080f96bf2fbfc042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JoinHostScript
+  joinCodeText: {fileID: 592677284}
 --- !u!114 &920955223
 MonoBehaviour:
   m_ObjectHideFlags: 0
