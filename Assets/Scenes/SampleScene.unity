@@ -387,7 +387,7 @@ Transform:
   m_GameObject: {fileID: 124695380}
   serializedVersion: 2
   m_LocalRotation: {x: 0.35836798, y: 0, z: 0, w: 0.93358046}
-  m_LocalPosition: {x: -0.40675664, y: 10.42, z: -14.843463}
+  m_LocalPosition: {x: 0, y: 11, z: -15.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1228,7 +1228,7 @@ Transform:
   m_GameObject: {fileID: 833726766}
   serializedVersion: 2
   m_LocalRotation: {x: 0.35836798, y: 0, z: 0, w: 0.93358046}
-  m_LocalPosition: {x: -0.40675664, y: 10.42, z: -14.843463}
+  m_LocalPosition: {x: 0, y: 11, z: -15.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2923,6 +2923,10 @@ PrefabInstance:
       propertyPath: chatInput
       value: 
       objectReference: {fileID: 1231408000}
+    - target: {fileID: 8170463075728388134, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
+      propertyPath: chatContent
+      value: 
+      objectReference: {fileID: 1629700279}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2958,7 +2962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4567542289962154336, guid: 1a002ae10bb5d8f4cbbca6cf47d99aec, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4567542289962154336, guid: 1a002ae10bb5d8f4cbbca6cf47d99aec, type: 3}
       propertyPath: m_AnchorMin.x
@@ -2966,11 +2970,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4567542289962154336, guid: 1a002ae10bb5d8f4cbbca6cf47d99aec, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4567542289962154336, guid: 1a002ae10bb5d8f4cbbca6cf47d99aec, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 275.72034
       objectReference: {fileID: 0}
     - target: {fileID: 4567542289962154336, guid: 1a002ae10bb5d8f4cbbca6cf47d99aec, type: 3}
       propertyPath: m_SizeDelta.y
@@ -3006,11 +3010,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4567542289962154336, guid: 1a002ae10bb5d8f4cbbca6cf47d99aec, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 137.86017
       objectReference: {fileID: 0}
     - target: {fileID: 4567542289962154336, guid: 1a002ae10bb5d8f4cbbca6cf47d99aec, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -99.11012
       objectReference: {fileID: 0}
     - target: {fileID: 4567542289962154336, guid: 1a002ae10bb5d8f4cbbca6cf47d99aec, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3027,6 +3031,10 @@ PrefabInstance:
     - target: {fileID: 7036569264281756860, guid: 1a002ae10bb5d8f4cbbca6cf47d99aec, type: 3}
       propertyPath: m_Name
       value: ChatMessage
+      objectReference: {fileID: 0}
+    - target: {fileID: 7036569264281756860, guid: 1a002ae10bb5d8f4cbbca6cf47d99aec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
