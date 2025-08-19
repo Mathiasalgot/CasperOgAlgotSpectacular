@@ -182,6 +182,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerScript
   ShowTopMostFoldoutHeaderGroup: 1
   object1: {fileID: 7877636699880715908, guid: 1166abd51e277cd4a9ca7cd4569be66d, type: 3}
+  movSpeed: 10
+  stoppingDistance: 0.1
 --- !u!114 &-8357659533913898234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,7 +208,7 @@ MonoBehaviour:
   RotationMaxInterpolationTime: 0.1
   ScaleLerpSmoothing: 1
   ScaleMaxInterpolationTime: 0.1
-  AuthorityMode: 0
+  AuthorityMode: 1
   TickSyncChildren: 0
   UseUnreliableDeltas: 0
   SyncPositionX: 1
