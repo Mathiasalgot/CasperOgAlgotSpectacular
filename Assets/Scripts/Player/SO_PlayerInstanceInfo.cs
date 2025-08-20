@@ -3,4 +3,5 @@ using UnityEngine;
 public class SO_PlayerInstanceInfo : ScriptableObject
 {
     public Vector3 playerPosition;
+    public Transform playerTransform;
 }

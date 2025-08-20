@@ -19,6 +19,13 @@ public class PlayerScript : NetworkBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        if (!IsOwner)
+        {
+            return;
+        }
+
+        playerInfo.playerTransform = transform;
     }
 
     // Update is called once per frame

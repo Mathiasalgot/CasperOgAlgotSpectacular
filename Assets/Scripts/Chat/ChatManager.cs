@@ -23,7 +23,7 @@ public class ChatManager : NetworkBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            SendChatMessage(chatInput.text, playerName);
+            SendChatMessage(chatInput.text);
             chatInput.text = "";
         }
     }
@@ -32,15 +32,14 @@ public class ChatManager : NetworkBehaviour
 
     //Both functions instantiate the same prefab, but with different initializations
 
-    void AddMessage(string msg)
+    void AddMessage(string msg, ulong owner)
     {
-        Instantiate<Scr_ChatMessagePopup>(messagePrefab,playerInfo.playerPosition + Vector3.one * 2f, Quaternion.identity, chatContent).InitAsMessage(msg);
+        Instantiate<Scr_ChatMessagePopup>(messagePrefab, chatContent).InitAsMessage(msg, NetworkManager.ConnectedClients[owner].PlayerObject.transform);
     }
 
-    void AddImage(Texture2D image)
+    void AddImage(Texture2D image, ulong owner)
     {
-        Instantiate<Scr_ChatMessagePopup>(messagePrefab, playerInfo.playerPosition + Vector3.one * 2f, Quaternion.identity, chatContent).InitAsImage(image);
-
+        Instantiate<Scr_ChatMessagePopup>(messagePrefab, chatContent).InitAsImage(image, NetworkManager.ConnectedClients[owner].PlayerObject.transform);
     }
     #endregion
 
@@ -55,18 +54,18 @@ public class ChatManager : NetworkBehaviour
         #region Image Server Functions
 
         [ServerRpc(RequireOwnership = false)]
-        void SendChatImageServerRpc(byte[] image)
+        void SendChatImageServerRpc(byte[] image, ServerRpcParams rpcParams = default)
         {
-            ReceiveImageMessageClientRpc(image);
+            ReceiveImageMessageClientRpc(image, rpcParams.Receive.SenderClientId);
         }
 
         [ClientRpc]
-        void ReceiveImageMessageClientRpc(byte[] image)
+        void ReceiveImageMessageClientRpc(byte[] image, ulong ownerId)
         {
             Texture2D recievedTexture = new Texture2D(128, 128, TextureFormat.RGB24, false);
             recievedTexture.LoadRawTextureData(image);
             recievedTexture.Apply();
-            ChatManager.Singleton.AddImage(recievedTexture);
+            ChatManager.Singleton.AddImage(recievedTexture, ownerId);
         }
         #endregion
 
@@ -99,27 +98,26 @@ public class ChatManager : NetworkBehaviour
     #region Chat Functions
 
     //Base public function to send a chat message
-    public void SendChatMessage(string _message, string _fromWho = null)
+    public void SendChatMessage(string _message)
     {
         if (string.IsNullOrWhiteSpace(_message)) return;
 
-        string S = _fromWho + " > " + _message;
-        SendChatMessageServerRpc(S);
+        SendChatMessageServerRpc(_message);
     }
 
         #region Chat Server Functions
 
 
         [ServerRpc(RequireOwnership = false)]
-        void SendChatMessageServerRpc(string message)
+        void SendChatMessageServerRpc(string message, ServerRpcParams rpcParams = default)
         {
-            ReceiveChatMessageClientRpc(message);
+            ReceiveChatMessageClientRpc(message, rpcParams.Receive.SenderClientId);
         }
 
         [ClientRpc]
-        void ReceiveChatMessageClientRpc(string message)
+        void ReceiveChatMessageClientRpc(string message, ulong ownerId)
         {
-            ChatManager.Singleton.AddMessage(message);
+            ChatManager.Singleton.AddMessage(ownerId.ToString() + ": " + message, ownerId);
         }
 
         #endregion
