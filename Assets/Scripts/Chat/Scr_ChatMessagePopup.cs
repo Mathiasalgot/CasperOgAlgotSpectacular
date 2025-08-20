@@ -33,7 +33,7 @@ public class Scr_ChatMessagePopup : MonoBehaviour
 
     private void Update()
     {
-        transform.position = myOwner.position + Vector3.one * 1.5f;
+        transform.position = myOwner.position + Vector3.up * 1.5f;
     }
 
     void StartDestroyTimer()
