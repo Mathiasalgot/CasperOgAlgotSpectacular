@@ -16,7 +16,7 @@ public class ChatManager : NetworkBehaviour
     [SerializeField] TMP_InputField chatInput;
 
     public string playerName;
-    
+    public SO_PlayerInstanceInfo playerInfo;
 
     //To be replaced by new Input System
     void Update()
@@ -34,12 +34,12 @@ public class ChatManager : NetworkBehaviour
 
     void AddMessage(string msg)
     {
-        Instantiate<Scr_ChatMessagePopup>(messagePrefab, chatContent).InitAsMessage();
+        Instantiate<Scr_ChatMessagePopup>(messagePrefab,playerInfo.playerPosition + Vector3.one * 2f, Quaternion.identity, chatContent).InitAsMessage(msg);
     }
 
     void AddImage(Texture2D image)
     {
-        Instantiate<Scr_ChatMessagePopup>(messagePrefab, chatContent).InitAsImage(image);
+        Instantiate<Scr_ChatMessagePopup>(messagePrefab, playerInfo.playerPosition + Vector3.one * 2f, Quaternion.identity, chatContent).InitAsImage(image);
 
     }
     #endregion

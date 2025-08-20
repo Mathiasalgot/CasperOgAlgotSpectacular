@@ -12,6 +12,7 @@ public class PlayerScript : NetworkBehaviour
     private Vector3 targetPosition;
     private bool isMoving = false;
     Rigidbody rb;
+    public SO_PlayerInstanceInfo playerInfo;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -48,6 +49,7 @@ public class PlayerScript : NetworkBehaviour
             rb.linearVelocity = new Vector3(rb.linearVelocity.x,3,rb.linearVelocity.z);
         }
 
+        playerInfo.playerPosition = transform.position;
 
         // Inside Update
         if (Input.GetMouseButtonDown(0) && IsOwner)

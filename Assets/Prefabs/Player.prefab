@@ -184,6 +184,7 @@ MonoBehaviour:
   object1: {fileID: 7877636699880715908, guid: 1166abd51e277cd4a9ca7cd4569be66d, type: 3}
   movSpeed: 10
   stoppingDistance: 0.1
+  playerInfo: {fileID: 11400000, guid: e243d768517679845a30060f08f4e7ac, type: 2}
 --- !u!114 &-8357659533913898234
 MonoBehaviour:
   m_ObjectHideFlags: 0
