@@ -13,30 +13,56 @@ public class Scr_WindowDragger : MonoBehaviour
     private const int WM_NCLBUTTONDOWN = 0xA1;
     private const int HTCAPTION = 0x2;
 
+    private const int HTBOTTOMRIGHT = 17;
+
     public bool dragging;
+    public bool scaling;
 
     void Update()
     {
         // Example: left mouse down anywhere on screen starts window drag
+#if !UNITY_EDITOR
         if (dragging)
         {
-#if !UNITY_EDITOR
+
             IntPtr hWnd = System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle;
             ReleaseCapture();
             SendMessage(hWnd, WM_NCLBUTTONDOWN, HTCAPTION, 0);
-#endif
+
         }
+
+        if (scaling)
+        {
+            IntPtr hWnd = System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle;
+            StartResize(hWnd, HTBOTTOMRIGHT);
+        }
+
+#endif
     }
 
-    public void MouseDown()
+    void StartResize(IntPtr hWnd, int hitTest)
+    {
+#if !UNITY_EDITOR
+        ReleaseCapture();
+        SendMessage(hWnd, WM_NCLBUTTONDOWN, hitTest, 0);
+#endif
+    }
+
+    public void StartDrag()
     {
         // Start dragging when the mouse button is pressed down
         dragging = true;
+    }
+
+    public void StartScale()
+    {
+        scaling = true;
     }
 
     public void MouseUp()
     {
         // Stop dragging when the mouse button is released
         dragging = false;
+        scaling = false;
     }
 }
