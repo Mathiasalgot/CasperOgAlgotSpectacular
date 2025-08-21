@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 4567542289962154336}
   - component: {fileID: 2298840721702723568}
   m_Layer: 5
-  m_Name: ChatMessage_Old
+  m_Name: Pf_ChatMessage_Old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

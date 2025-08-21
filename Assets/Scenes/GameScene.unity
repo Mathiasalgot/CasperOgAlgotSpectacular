@@ -809,7 +809,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1332782165}
+  - {fileID: 1655018355312435144}
   - {fileID: 1244099470}
   - {fileID: 2021310351}
   - {fileID: 486383471}
@@ -2620,34 +2620,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RectMask2D
   m_Padding: {x: -8, y: -5, z: -8, w: -5}
   m_Softness: {x: 0, y: 0}
---- !u!1 &1332782164 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1025857782278525830, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-  m_PrefabInstance: {fileID: 640922808354760957}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &1332782165 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2167020367288760117, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-  m_PrefabInstance: {fileID: 640922808354760957}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1332782166 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8170463075728388134, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-  m_PrefabInstance: {fileID: 640922808354760957}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1332782164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80c195e91df6bdb45ad4d7900366abef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChatManager
 --- !u!114 &1332782168
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1332782164}
+  m_GameObject: {fileID: 493592561276320635}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7522fca805973b64eaa656437a25c7ba, type: 3}
@@ -2656,7 +2635,7 @@ MonoBehaviour:
   onImageImported:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1332782166}
+      - m_Target: {fileID: 8756777814450116827}
         m_TargetAssemblyTypeName: ChatManager, Assembly-CSharp
         m_MethodName: SendImageMessage
         m_Mode: 0
@@ -3250,146 +3229,69 @@ Transform:
   m_Children: []
   m_Father: {fileID: 560503170}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &640922808354760957
-PrefabInstance:
+--- !u!1 &493592561276320635
+GameObject:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 560503170}
-    m_Modifications:
-    - target: {fileID: 558406253715766485, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: GlobalObjectIdHash
-      value: 3955841849
-      objectReference: {fileID: 0}
-    - target: {fileID: 558406253715766485, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: InScenePlacedSourceGlobalObjectIdHash
-      value: 2483802472
-      objectReference: {fileID: 0}
-    - target: {fileID: 1025857782278525830, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: m_Name
-      value: ChatManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 2167020367288760117, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2167020367288760117, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2167020367288760117, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2167020367288760117, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2167020367288760117, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2167020367288760117, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2167020367288760117, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2167020367288760117, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2167020367288760117, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.06625
-      objectReference: {fileID: 0}
-    - target: {fileID: 2167020367288760117, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.06625
-      objectReference: {fileID: 0}
-    - target: {fileID: 2167020367288760117, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.06625
-      objectReference: {fileID: 0}
-    - target: {fileID: 2167020367288760117, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2167020367288760117, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2167020367288760117, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2167020367288760117, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2167020367288760117, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2167020367288760117, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2167020367288760117, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2167020367288760117, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 2167020367288760117, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 225.08794
-      objectReference: {fileID: 0}
-    - target: {fileID: 2167020367288760117, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2167020367288760117, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2167020367288760117, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8170463075728388134, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: chatText
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8170463075728388134, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: chatInput
-      value: 
-      objectReference: {fileID: 1231408000}
-    - target: {fileID: 8170463075728388134, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: playerInfo
-      value: 
-      objectReference: {fileID: 11400000, guid: e243d768517679845a30060f08f4e7ac, type: 2}
-    - target: {fileID: 8170463075728388134, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: chatContent
-      value: 
-      objectReference: {fileID: 1993488023}
-    - target: {fileID: 8170463075728388134, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      propertyPath: messagePrefab
-      value: 
-      objectReference: {fileID: 9186169330316490085, guid: b846192e29f5dcf48915fa998bbb02eb, type: 3}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1025857782278525830, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1332782168}
-  m_SourcePrefab: {fileID: 100100000, guid: 18cf886c8a7001a4bb51888c5124e9a4, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1655018355312435144}
+  - component: {fileID: 1106434571634463784}
+  - component: {fileID: 8756777814450116827}
+  - component: {fileID: 1332782168}
+  m_Layer: 5
+  m_Name: ChatManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1106434571634463784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493592561276320635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
+  GlobalObjectIdHash: 3955841849
+  InScenePlacedSourceGlobalObjectIdHash: 2483802472
+  DeferredDespawnTick: 0
+  Ownership: 1
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 0
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
+--- !u!224 &1655018355312435144
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493592561276320635}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.06625, y: 1.06625, z: 1.06625}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 560503170}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 400, y: 225.08794}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &4287238202520844420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3495,6 +3397,24 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b846192e29f5dcf48915fa998bbb02eb, type: 3}
+--- !u!114 &8756777814450116827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493592561276320635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c195e91df6bdb45ad4d7900366abef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChatManager
+  ShowTopMostFoldoutHeaderGroup: 1
+  messagePrefab: {fileID: 9186169330316490085, guid: b846192e29f5dcf48915fa998bbb02eb, type: 3}
+  chatContent: {fileID: 1993488023}
+  chatInput: {fileID: 1231408000}
+  playerName: Player
+  playerInfo: {fileID: 11400000, guid: e243d768517679845a30060f08f4e7ac, type: 2}
 --- !u!1001 &8806206570379811915
 PrefabInstance:
   m_ObjectHideFlags: 0
