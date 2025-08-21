@@ -40,6 +40,7 @@ public class Scr_WindowDragger : MonoBehaviour
 #endif
     }
 
+    //Needs rework, Move to window transparency and change the window size there
     void StartResize(IntPtr hWnd, int hitTest)
     {
 #if !UNITY_EDITOR
