@@ -39,10 +39,12 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
+    - _Dialation: 0
     - _Smoothness: 0.5
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Base_Color: {r: 0.32580677, g: 0.764151, b: 0.2198736, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Position: {r: 284.5, g: 405, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
