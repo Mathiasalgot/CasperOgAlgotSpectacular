@@ -53,7 +53,7 @@ public class PlayerScript : NetworkBehaviour
         //Prototype jump(skal nok slettes helt)
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb.linearVelocity = new Vector3(rb.linearVelocity.x,3,rb.linearVelocity.z);
+            Jump();
         }
 
         playerInfo.playerPosition = transform.position;
@@ -121,6 +121,11 @@ public class PlayerScript : NetworkBehaviour
         {
             isMoving = false;
         }
+    }
+
+    public void Jump()
+    {
+        rb.linearVelocity = new Vector3(rb.linearVelocity.x, 3, rb.linearVelocity.z);
     }
     /*
         void OldPlayerMovement()
