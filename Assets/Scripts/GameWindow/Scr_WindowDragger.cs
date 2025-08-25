@@ -10,59 +10,82 @@ public class Scr_WindowDragger : MonoBehaviour
     [DllImport("user32.dll")]
     private static extern IntPtr SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
+    [DllImport("user32.dll")]
+    private static extern bool GetWindowRect(IntPtr hWnd, out RECT rect);
+
+    [DllImport("user32.dll")]
+    private static extern int SetWindowPos(IntPtr hwnd, int hwndInsertAfter,
+        int x, int y, int cx, int cy, uint uFlags);
+
     private const int WM_NCLBUTTONDOWN = 0xA1;
     private const int HTCAPTION = 0x2;
+    private const int HWND_TOPMOST = -1;
+    private const uint SWP_NOZORDER = 0x0004;
+    private const uint SWP_NOACTIVATE = 0x0010;
 
-    private const int HTBOTTOMRIGHT = 17;
+    [StructLayout(LayoutKind.Sequential)]
+    private struct RECT { public int left, top, right, bottom; }
 
     public bool dragging;
     public bool scaling;
 
-    void Update()
+    private Vector2 scaleStartMouse;
+    private RECT startRect;
+    private IntPtr hWnd;
+    private float aspectRatio;
+
+    void Start()
     {
-        // Example: left mouse down anywhere on screen starts window drag
-#if !UNITY_EDITOR
-        if (dragging)
-        {
-
-            IntPtr hWnd = System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle;
-            ReleaseCapture();
-            SendMessage(hWnd, WM_NCLBUTTONDOWN, HTCAPTION, 0);
-
-        }
-
-        if (scaling)
-        {
-            IntPtr hWnd = System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle;
-            StartResize(hWnd, HTBOTTOMRIGHT);
-        }
-
-#endif
+        hWnd = System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle;
     }
 
-    //Needs rework, Move to window transparency and change the window size there
-    void StartResize(IntPtr hWnd, int hitTest)
+    void Update()
     {
 #if !UNITY_EDITOR
-        ReleaseCapture();
-        SendMessage(hWnd, WM_NCLBUTTONDOWN, hitTest, 0);
+        Vector2 mousePos = Input.mousePosition;
+
+        // --- SCALING ONLY ---
+        if (scaling)
+        {
+            Vector2 delta = mousePos - scaleStartMouse;
+
+            int newWidth  = Math.Max(100, (startRect.right - startRect.left) + (int)delta.x);
+            int newHeight = (int)(newWidth / aspectRatio);
+
+            SetWindowPos(hWnd, HWND_TOPMOST,
+                startRect.left,
+                startRect.top,
+                newWidth,
+                newHeight,
+                SWP_NOZORDER | SWP_NOACTIVATE);
+        }
 #endif
     }
 
     public void StartDrag()
     {
-        // Start dragging when the mouse button is pressed down
-        dragging = true;
+#if !UNITY_EDITOR
+        // Let OS handle drag entirely for snapping behavior
+        ReleaseCapture();
+        SendMessage(hWnd, WM_NCLBUTTONDOWN, HTCAPTION, 0);
+#endif
     }
 
     public void StartScale()
     {
+#if !UNITY_EDITOR
         scaling = true;
+        scaleStartMouse = Input.mousePosition;
+        GetWindowRect(hWnd, out startRect);
+
+        int width  = startRect.right - startRect.left;
+        int height = startRect.bottom - startRect.top;
+        aspectRatio = (float)width / height;
+#endif
     }
 
     public void MouseUp()
     {
-        // Stop dragging when the mouse button is released
         dragging = false;
         scaling = false;
     }
