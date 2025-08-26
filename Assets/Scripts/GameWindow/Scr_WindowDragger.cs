@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.InteropServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Scr_WindowDragger : MonoBehaviour
@@ -34,13 +35,59 @@ public class Scr_WindowDragger : MonoBehaviour
     private IntPtr hWnd;
     private float aspectRatio;
 
+  
+    [DllImport("user32.dll")]
+    private static extern IntPtr LoadCursor(IntPtr hInstance, int lpCursorName);
+
+    [DllImport("user32.dll")]
+    private static extern IntPtr SetCursor(IntPtr hCursor);
+
+    // Cursor IDs
+    private const int IDC_ARROW = 32512;
+    private const int IDC_SIZEWE = 32644;
+    private const int IDC_SIZENS = 32645;
+    private const int IDC_SIZENWSE = 32642;
+    private const int IDC_SIZENESW = 32643;
+    private const int IDC_SIZEALL = 32646;
+
+    private IntPtr hCursor;
+
     void Start()
     {
         hWnd = System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle;
+
+        hCursor = LoadCursor(IntPtr.Zero, IDC_ARROW);
     }
+
+
+    public void SetArrowCursor(int cursorInt)
+    {
+        
+        switch (cursorInt)
+        {
+            case 0:
+                hCursor = LoadCursor(IntPtr.Zero, IDC_ARROW);
+                break;
+            case 1:
+                hCursor = LoadCursor(IntPtr.Zero, IDC_SIZENWSE);
+                break;
+            case 2:
+                hCursor = LoadCursor(IntPtr.Zero, IDC_SIZEALL);
+                break;
+            default:
+                break;
+        }
+        
+        SetCursor(hCursor);
+    }
+
+
 
     void Update()
     {
+
+        SetCursor(hCursor);
+
 #if !UNITY_EDITOR
         Vector2 mousePos = Input.mousePosition;
 

@@ -38,6 +38,7 @@ public class Scr_TransparentWindow : MonoBehaviour
 
     void Start()
     {
+        
 #if !UNITY_EDITOR // You really don’t want to enable this in the editor…
 
 int fWidth = Screen.width;
@@ -50,7 +51,7 @@ SetWindowLong(hwnd, GWL_STYLE, WS_POPUP | WS_VISIBLE);
 // Transparent windows with click through
 SetWindowLong(hwnd, -20, 524288 | 16);//GWL_EXSTYLE=-20; WS_EX_LAYERED=524288=&h80000, WS_EX_TRANSPARENT=32=0x00000020L
 SetLayeredWindowAttributes(hwnd, 0, 0, 0x00000001);// Transparency=51=20%, LWA_ALPHA=2
-SetWindowPos(hwnd, HWND_TOPMOST, 0, 0, 800, 500, 32 | 64); //SWP_FRAMECHANGED = 0x0020 (32); //SWP_SHOWWINDOW = 0x0040 (64)
+SetWindowPos(hwnd, HWND_TOPMOST, 0, 0, 500, 500, 32 | 64); //SWP_FRAMECHANGED = 0x0020 (32); //SWP_SHOWWINDOW = 0x0040 (64)
 DwmExtendFrameIntoClientArea(hwnd, ref margins);
 
 #endif

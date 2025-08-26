@@ -4,40 +4,43 @@ using UnityEngine.UI;
 
 public class Scr_ChatMessagePopup : MonoBehaviour
 {
+    [Header("UI Elements")]
     public GameObject messageParent;
     public GameObject imageParent;
     public TMP_Text textField;
     public RawImage imageField;
 
-    private bool init;
-    private Transform myOwner;
+    public Transform Owner { get; private set; }
+    public RectTransform RectTransform { get; private set; }
+
+    private void Awake()
+    {
+        RectTransform = GetComponent<RectTransform>();
+    }
+
     public void InitAsMessage(string message, Transform owner)
     {
+        ResetVisuals();
+
         textField.text = message;
         messageParent.SetActive(true);
-        StartDestroyTimer();
 
-        init = true;
-        myOwner = owner; 
+        Owner = owner;
     }
 
     public void InitAsImage(Texture2D image, Transform owner)
     {
+        ResetVisuals();
+
         imageField.texture = image;
         imageParent.SetActive(true);
-        StartDestroyTimer();
 
-        init = true;
-        myOwner = owner;
+        Owner = owner;
     }
 
-    private void Update()
+    private void ResetVisuals()
     {
-        transform.position = myOwner.position + Vector3.up * 1.5f;
-    }
-
-    void StartDestroyTimer()
-    {
-        Destroy(gameObject, 5f); // Destroys the popup after 5 seconds
+        messageParent.SetActive(false);
+        imageParent.SetActive(false);
     }
 }

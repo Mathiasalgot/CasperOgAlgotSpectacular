@@ -10,8 +10,7 @@ public class ChatManager : NetworkBehaviour
 
 
 
-    public Scr_ChatMessagePopup messagePrefab;
-    public Transform chatContent;
+    public Scr_ScreenspaceChatHandler chatHandler;
     //[SerializeField] CanvasGroup chatContent;
     [SerializeField] TMP_InputField chatInput;
 
@@ -34,12 +33,14 @@ public class ChatManager : NetworkBehaviour
 
     void AddMessage(string msg, ulong owner)
     {
-        Instantiate<Scr_ChatMessagePopup>(messagePrefab, chatContent).InitAsMessage(msg, NetworkManager.ConnectedClients[owner].PlayerObject.transform);
+        chatHandler.SpawnMessage(msg, NetworkManager.ConnectedClients[owner].PlayerObject.transform);
+        //Instantiate<Scr_ChatMessagePopup>(messagePrefab, chatContent).InitAsMessage(msg, NetworkManager.ConnectedClients[owner].PlayerObject.transform);
     }
 
     void AddImage(Texture2D image, ulong owner)
     {
-        Instantiate<Scr_ChatMessagePopup>(messagePrefab, chatContent).InitAsImage(image, NetworkManager.ConnectedClients[owner].PlayerObject.transform);
+        chatHandler.SpawnImage(image, NetworkManager.ConnectedClients[owner].PlayerObject.transform);
+        //Instantiate<Scr_ChatMessagePopup>(messagePrefab, chatContent).InitAsImage(image, NetworkManager.ConnectedClients[owner].PlayerObject.transform);
     }
     #endregion
 
