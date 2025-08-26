@@ -15,7 +15,6 @@ public class ChatManager : NetworkBehaviour
     [SerializeField] TMP_InputField chatInput;
 
     public string playerName;
-    public SO_PlayerInstanceInfo playerInfo;
 
     //To be replaced by new Input System
     void Update()
