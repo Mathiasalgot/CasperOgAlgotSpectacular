@@ -13,6 +13,7 @@ public class Scr_InputManager : MonoBehaviour
     public Vector2Event openPortalEvent;
     public Vector2Event primaryActionEvent;
     public Vector2Event mousePositionEvent;
+    public VoidEvent onAnyKeyPressed;
 
     public void GetMouseDelta(InputAction.CallbackContext context)
     {
@@ -55,6 +56,14 @@ public class Scr_InputManager : MonoBehaviour
         if (context.started)
         {
             openPortalEvent.Raise(mousePos);
+        }
+    }
+
+    public void GetAnyKey(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            onAnyKeyPressed.Raise();
         }
     }
 }
