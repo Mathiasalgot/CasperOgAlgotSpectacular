@@ -12,19 +12,10 @@ public class ChatManager : NetworkBehaviour
 
     public Scr_ScreenspaceChatHandler chatHandler;
     //[SerializeField] CanvasGroup chatContent;
-    [SerializeField] TMP_InputField chatInput;
+
 
     public string playerName;
 
-    //To be replaced by new Input System
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            SendChatMessage(chatInput.text);
-            chatInput.text = "";
-        }
-    }
 
     #region Output Functions
 
