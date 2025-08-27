@@ -45,6 +45,6 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Base_Color: {r: 0.32580677, g: 0.764151, b: 0.2198736, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Position: {r: 284.5, g: 405, b: 0, a: 0}
+    - _Position: {r: 130.70776, g: 300.22833, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
