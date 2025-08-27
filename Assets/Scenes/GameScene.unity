@@ -329,7 +329,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -52.9, y: 2.3}
+  m_AnchoredPosition: {x: -52.899994, y: 2.300003}
   m_SizeDelta: {x: 43.7859, y: 12.2774}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &132520728
@@ -3803,9 +3803,9 @@ RectTransform:
   - {fileID: 132520727}
   m_Father: {fileID: 920955226}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 32.5}
+  m_AnchorMin: {x: 0, y: 0.19}
+  m_AnchorMax: {x: 1, y: 0.19}
+  m_AnchoredPosition: {x: 0, y: -26.399994}
   m_SizeDelta: {x: -18, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1492046310
@@ -4225,6 +4225,8 @@ MonoBehaviour:
   sceneCamera: {fileID: 124695383}
   chatCanvas: {fileID: 1993488023}
   messagePrefab: {fileID: 9186169330316490085, guid: b846192e29f5dcf48915fa998bbb02eb, type: 3}
+  messageLifetime: 5
+  messageUpdrift: 2
 --- !u!1 &2021310350
 GameObject:
   m_ObjectHideFlags: 0

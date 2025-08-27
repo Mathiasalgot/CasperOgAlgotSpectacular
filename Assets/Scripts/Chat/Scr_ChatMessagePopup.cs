@@ -9,8 +9,6 @@ public class Scr_ChatMessagePopup : MonoBehaviour
     public GameObject imageParent;
     public TMP_Text textField;
     public RawImage imageField;
-
-    public Transform Owner { get; private set; }
     public RectTransform RectTransform { get; private set; }
 
     private void Awake()
@@ -18,24 +16,22 @@ public class Scr_ChatMessagePopup : MonoBehaviour
         RectTransform = GetComponent<RectTransform>();
     }
 
-    public void InitAsMessage(string message, Transform owner)
+    public void InitAsMessage(string message)
     {
         ResetVisuals();
 
         textField.text = message;
         messageParent.SetActive(true);
 
-        Owner = owner;
     }
 
-    public void InitAsImage(Texture2D image, Transform owner)
+    public void InitAsImage(Texture2D image)
     {
         ResetVisuals();
 
         imageField.texture = image;
         imageParent.SetActive(true);
 
-        Owner = owner;
     }
 
     private void ResetVisuals()
