@@ -5,15 +5,14 @@ using MA.Events;
 public class Scr_InputManager : MonoBehaviour
 {
     //Local variable storage
-    private bool primaryActionPressed;
+    private bool jumpPressed;
     private Vector2 mouseDelta;
-    private Vector2 mousePos;
+    private Vector2 moveInput;
 
     //Output Events
-    public Vector2Event openPortalEvent;
-    public Vector2Event primaryActionEvent;
-    public Vector2Event mousePositionEvent;
-    public VoidEvent onAnyKeyPressed;
+    public VoidEvent jumpEvent;
+    public Vector2Event movementEvent;
+    public Vector2Event mouseDeltaEvent;
 
     public void GetMouseDelta(InputAction.CallbackContext context)
     {
@@ -29,41 +28,32 @@ public class Scr_InputManager : MonoBehaviour
         {
             mouseDelta = Vector2.zero;
         }
+
+        mouseDeltaEvent.Raise(mouseDelta);
     }
-    public void GetMousePosition(InputAction.CallbackContext context)
+    public void GetWalkInput(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            mousePos = context.ReadValue<Vector2>();
-            mousePositionEvent.Raise(mousePos);
-        }
-    }
-    public void GetPrimaryAction(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            primaryActionPressed = true;
-            primaryActionEvent.Raise(mousePos);
+            moveInput = context.ReadValue<Vector2>();
+            movementEvent.Raise(moveInput);
         }
         if (context.canceled)
         {
-            primaryActionPressed = false;
+            movementEvent.Raise(Vector2.zero);
         }
     }
-
-    public void GetOpenPortal(InputAction.CallbackContext context)
+    public void GetJump(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            openPortalEvent.Raise(mousePos);
+            jumpPressed = true;
+            jumpEvent.Raise();
+        }
+        if (context.canceled)
+        {
+            jumpPressed = false;
         }
     }
 
-    public void GetAnyKey(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            onAnyKeyPressed.Raise();
-        }
-    }
 }
