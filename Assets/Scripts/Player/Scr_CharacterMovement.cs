@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Scr_CharacterMovement : MonoBehaviour
