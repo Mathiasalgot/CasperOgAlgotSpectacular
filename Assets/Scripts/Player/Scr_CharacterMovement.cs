@@ -3,7 +3,7 @@ using UnityEngine;
 using Unity.Netcode;
 
 [RequireComponent(typeof(Rigidbody))]
-public class Scr_CharacterMovement : MonoBehaviour
+public class Scr_CharacterMovement : NetworkBehaviour
 {
     [Header("Movement Settings")]
     public float moveSpeed = 8f;

@@ -19,6 +19,7 @@ public class Scr_InputManager : MonoBehaviour
         if(context.started)
         {
             mouseDelta = context.ReadValue<Vector2>();
+            Debug.Log("mouse started moving");
         }
         if (context.performed)
         {
