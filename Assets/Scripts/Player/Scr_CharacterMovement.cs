@@ -50,6 +50,10 @@ public class Scr_CharacterMovement : NetworkBehaviour
 
     private void FixedUpdate()
     {
+        if (!IsOwner)
+            return;
+
+
         // 1. Calculate base target velocity from input
         Vector3 targetVelocity = new Vector3(currentMoveInput.x, 0f, currentMoveInput.y) * moveSpeed;
 
